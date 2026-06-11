@@ -1,0 +1,9 @@
+بعد نجاح المرحلة الأولى فقط:
+
+سيصبح عندك Docker image:
+docker.io/abdelazizaabi/jumana-sadtalker-worker:latest
+
+بعدها نبدأ المرحلة الثانية:
+RunPod → Serverless → New Endpoint → Import from Docker Registry
+
+لا تبدأ المرحلة الثانية قبل نجاح GitHub Actions.
