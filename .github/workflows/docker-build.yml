@@ -20,10 +20,10 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Build Docker image V18.5
+      - name: Build Docker image V18.6
         run: |
-          docker build -t abdelazizaabi/jumana-sadtalker-worker:v18-5 ./runpod_serverless_worker
+          docker build -t abdelazizaabi/jumana-sadtalker-worker:v18-6 ./runpod_serverless_worker
 
-      - name: Push Docker image V18.5
+      - name: Push Docker image V18.6
         run: |
-          docker push abdelazizaabi/jumana-sadtalker-worker:v18-5
+          docker push abdelazizaabi/jumana-sadtalker-worker:v18-6
