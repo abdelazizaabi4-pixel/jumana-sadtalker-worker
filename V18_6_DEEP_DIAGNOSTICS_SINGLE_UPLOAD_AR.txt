@@ -1,0 +1,16 @@
+JumanaMotionCodeLab V18.6 — Deep Diagnostics Single Upload
+
+هذه النسخة لا تضيف صورًا ولا تغيّر فكرة المشروع.
+هدفها الوحيد: معرفة أسباب الفشل كلها بدل الرسائل الغامضة.
+
+ما الجديد:
+1. يسجل البرنامج تقريرًا كاملًا لكل محاولة داخل data/diagnostics.
+2. يحفظ request و submit response و status history و final output.
+3. إذا فشل RunPod يظهر السبب الحقيقي مع مسار ملف التقرير.
+4. handler.py في RunPod يرجع output دائمًا وفيه diagnostic_report.
+5. عند الفشل سترى: المرحلة التي فشلت، هل SadTalker موجود، هل ffmpeg موجود، هل الصوت وصل، هل الصورة وصلت، هل checkpoints موجودة، آخر stdout/stderr.
+6. Docker tag الجديد: abdelazizaabi/jumana-sadtalker-worker:v18-6
+
+ارفع محتوى _GITHUB_UPLOAD_ONCE فقط إلى GitHub ثم شغّل Actions.
+بعد نجاح البناء غيّر RunPod Container image إلى:
+docker.io/abdelazizaabi/jumana-sadtalker-worker:v18-6

@@ -1,12 +1,13 @@
-V18.5 — ارفع محتوى هذا المجلد فقط إلى GitHub
+V18.6 Deep Diagnostics — ارفع هذا المجلد مرة واحدة فقط
 
-ارفع هذه العناصر كما هي إلى مستودع GitHub:
-.github
-runpod_serverless_worker
-V18_5_MULTI_PERSON_SCENE_SINGLE_UPLOAD_AR.txt
+ارفع محتوى هذا المجلد إلى GitHub.
+المهم:
+runpod_serverless_worker/handler.py
+runpod_serverless_worker/Dockerfile
+runpod_serverless_worker/requirements_worker.txt
+.github/workflows/docker-build.yml
 
-بعدها شغّل GitHub Actions.
-بعد نجاح البناء استعمل الصورة:
-docker.io/abdelazizaabi/jumana-sadtalker-worker:v18-5
+بعد الرفع شغّل GitHub Actions، ثم في RunPod غيّر Container image إلى:
+docker.io/abdelazizaabi/jumana-sadtalker-worker:v18-6
 
-لا ترفع ملفات البرنامج كلها كل مرة. هذا المجلد يكفي لتحديث الـ Worker.
+إذا فشل الإنتاج بعد ذلك، ستحصل على تقرير كامل داخل data/diagnostics في برنامج جمانة.
