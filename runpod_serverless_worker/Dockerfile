@@ -13,6 +13,6 @@ RUN bash scripts/download_models.sh || true
 WORKDIR /workspace
 COPY handler.py /workspace/handler.py
 ENV SADTALKER_DIR=/workspace/SadTalker
-ENV JUMANA_MAX_INLINE_VIDEO_MB=45
-ENV JUMANA_WORKER_VERSION=V18.7_LONG_WAIT_AND_LIVE_LOGS
+ENV JUMANA_MAX_INLINE_VIDEO_MB=24
+ENV JUMANA_WORKER_VERSION=V18.8_HANDLER_OUTPUT_GUARANTEE
 CMD ["python", "-u", "/workspace/handler.py"]
