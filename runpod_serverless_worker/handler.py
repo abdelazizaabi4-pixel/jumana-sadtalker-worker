@@ -6,8 +6,8 @@ from typing import Any, Dict
 
 import runpod
 
-VERSION = "V18.6_DEEP_DIAGNOSTICS_SINGLE_UPLOAD"
-WORKER_NAME = "Jumana V18.6 Deep Diagnostics + Multi Person Scene + SadTalker"
+VERSION = "V18.7_LONG_WAIT_AND_LIVE_LOGS"
+WORKER_NAME = "Jumana V18.7 Long Wait + Live Logs + Deep Diagnostics + SadTalker"
 WORK_ROOT = Path(os.environ.get("JUMANA_WORK", "/workspace/jumana_serverless_jobs"))
 RESULTS = Path(os.environ.get("JUMANA_RESULTS", "/workspace/results"))
 SADTALKER = Path(os.environ.get("SADTALKER_DIR", "/workspace/SadTalker"))
@@ -110,7 +110,7 @@ def handler(event: Dict[str, Any]) -> Dict[str, Any]:
         inp = event.get("input") or {}
         task = inp.get("task") or ("diagnostic_output" if inp.get("prompt") else "sadtalker_video")
         if task in {"ping", "diagnostic_output"}:
-            return _ok(task="ping", message=inp.get("message", "pong"), supports=SUPPORTED_TASKS, motion_presets=MOTION_PRESETS, important_ar="إذا ظهر هذا output فهذا يعني أن Worker V18.6 يعمل فعلًا.")
+            return _ok(task="ping", message=inp.get("message", "pong"), supports=SUPPORTED_TASKS, motion_presets=MOTION_PRESETS, important_ar="إذا ظهر هذا output فهذا يعني أن Worker V18.7 يعمل فعلًا.")
         if task != "sadtalker_video":
             return _fail(f"Unknown task: {task}", stage="task_check", supported_tasks=SUPPORTED_TASKS)
         body_layer = _extract_body_layer(inp)
@@ -161,7 +161,7 @@ python inference.py \
 find "{RESULTS}" -type f -name "*.mp4" -printf "%T@ %p\n" | sort -n | tail -1 | cut -d" " -f2- > "{out_txt}"
 '''
         (job / "run_command.sh").write_text(cmd, encoding="utf-8")
-        proc = _run(cmd, timeout=int(inp.get("timeout", 2400)))
+        proc = _run(cmd, timeout=int(inp.get("timeout", 3600)))
         stage = "find_video"
         video_text = out_txt.read_text(encoding="utf-8", errors="ignore").strip()
         if not video_text:
