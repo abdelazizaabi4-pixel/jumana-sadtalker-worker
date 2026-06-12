@@ -1,13 +1,18 @@
-# Jumana V17.2 Serverless Worker
+# Jumana V18.3 Serverless Worker
 
-هذا المجلد هو Worker الخاص بـ RunPod Serverless.
-لا تبنيه على الحاسوب إذا كان Docker يفشل أو الإنترنت ضعيف.
-استعمل GitHub Actions الموجود في:
+هذه نسخة Worker واحدة للرفع إلى GitHub مرة واحدة فقط.
 
-.github/workflows/docker-build.yml
+المهم فيها:
+- ترجع output دائمًا.
+- تدعم اختيار الحركة من الواجهة: يمشي، يشير بيده، يشرح، يلتفت، يرفع يده.
+- تبقي SadTalker للوجه والكلام.
+- تحفظ طبقة الجسم الكامل داخل output حتى لا تضيع اختيارات الحركة.
+- تبني Docker tag ثابتًا: `v18-3` بالإضافة إلى `latest`.
 
-النتيجة النهائية المطلوبة بعد نجاح GitHub Actions:
+الصورة بعد نجاح GitHub Actions:
 
-docker.io/abdelazizaabi/jumana-sadtalker-worker:latest
+```text
+docker.io/abdelazizaabi/jumana-sadtalker-worker:v18-3
+```
 
-بعدها فقط ننتقل إلى إنشاء RunPod Serverless Endpoint.
+استعمل هذا الـ tag في RunPod Endpoint بدل latest حتى لا يختلط عليك القديم بالجديد.

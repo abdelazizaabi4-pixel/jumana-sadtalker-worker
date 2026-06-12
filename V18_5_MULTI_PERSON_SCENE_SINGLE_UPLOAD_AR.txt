@@ -1,0 +1,31 @@
+JumanaMotionCodeLab V18.5 — Multi Person Scene Single Upload
+
+الفكرة:
+لا نحذف SadTalker ولا RunPod Serverless. نضيف فوقهما طبقة مشهد متعدد الأشخاص.
+
+ما الجديد في V18.5:
+1. زر واحد فقط في الواجهة.
+2. اختيار حركة الشخص الأول.
+3. إضافة وضع مشهد فيه أشخاص كثيرون.
+4. إذا اخترت مشهد أشخاص كثيرون، يطلب منك البرنامج عدد الأشخاص الإضافيين ثم صورهم وأدوارهم.
+5. يرسل إلى RunPod:
+   - صورة الشخص الأول
+   - الصوت
+   - صور الأشخاص الإضافيين
+   - scene_manifest يحدد من يتكلم ومن يتحرك ومن يستمع
+6. handler.py يرجع output دائمًا، حتى إذا لم يكن محرك الجسم الكامل الحقيقي موجودًا بعد.
+7. Docker tag الخاص بهذه النسخة:
+   abdelazizaabi/jumana-sadtalker-worker:v18-5
+
+مهم:
+هذه النسخة تحافظ على إنتاج SadTalker للوجه والكلام، وتجهز طبقة المشهد متعدد الأشخاص.
+تحريك كامل حقيقي لكل الأشخاص يحتاج لاحقًا Worker أكبر يحتوي DWpose/OpenPose + MusePose/MagicAnimate/MimicMotion أو ComfyUI full-body workflow.
+
+طريقة الرفع إلى GitHub:
+ارفع محتوى المجلد:
+_GITHUB_UPLOAD_ONCE
+فقط.
+
+ثم شغّل GitHub Actions.
+بعد نجاح البناء، غيّر Docker image في RunPod Endpoint إلى:
+docker.io/abdelazizaabi/jumana-sadtalker-worker:v18-5

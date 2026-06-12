@@ -1,4 +1,7 @@
-runpod
+runpod>=1.7.0
 requests
+pillow
+numpy==1.23.5
+scipy==1.10.1
 imageio-ffmpeg
 moviepy
